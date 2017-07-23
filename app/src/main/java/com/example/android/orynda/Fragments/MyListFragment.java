@@ -46,9 +46,10 @@ public class MyListFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         DBHelper dbHelper = new DBHelper(getActivity());
         mDb = dbHelper.getWritableDatabase();
-        insertFakeData(mDb);
+
         Cursor mCursor = getAllTasks();
         taskList = setAllTasks(mCursor);
+
 
         mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), mRecyclerView, new ClickListener() {
             @Override
@@ -136,6 +137,86 @@ public class MyListFragment extends Fragment {
         cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
         list.add(cv);
 
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
+        cv = new ContentValues();
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
+        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
+        list.add(cv);
         try{
             db.beginTransaction();
             db.delete (TaskContract.TaskEntity.TABLE_NAME,null,null);

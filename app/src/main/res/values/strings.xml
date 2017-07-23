@@ -3,4 +3,15 @@
     <string name="task_title">Title</string>
     <string name="task_date">06-07-2017 21:45</string>
     <string name="add_new_task">Жаңа тапсырма</string>
+    <string name="add_name_of_task_to_do">Тапсырманың аты</string>
+    <string name="add_task_description">Тапсырманың сипаттамасы</string>
+    <string name="due_date">Бітіру күні</string>
+    <string name="due_time">Бітіру уақыты</string>
+    <string name="set_alarm">Хабарлама</string>
+    <string name="reminder">Хабарлама жіберу</string>
+    <string name="add_task_reward">Орындаған үшін марапат</string>
+    <string name="add_task_punishment">Орындамаған үшін жаза</string>
+    <string name="add_new_menu_task">Жаңа тапсырма</string>
+    <string name="invalid_input_values">Тапсырма толық емес!</string>
+    <string name="task_date_and_time">уақыт берілмеген</string>
 </resources>
