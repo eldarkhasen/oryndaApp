@@ -1,10 +1,12 @@
 package com.example.android.orynda.DB;
 
+import java.io.Serializable;
+
 /**
  * Created by админ on 22.07.2017.
  */
 
-public class Tasks {
+public class Tasks implements Serializable {
     public Long id;
     public String title;
     public String description;

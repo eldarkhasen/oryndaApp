@@ -1,6 +1,7 @@
 package com.example.android.orynda.Fragments;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.android.orynda.Activity.ViewTaskActivity;
 import com.example.android.orynda.Adapters.TaskAdapter;
 import com.example.android.orynda.DB.DBHelper;
 import com.example.android.orynda.DB.TaskContract;
@@ -22,7 +24,10 @@ import com.example.android.orynda.DB.Tasks;
 import com.example.android.orynda.R;
 
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,8 +61,10 @@ public class MyListFragment extends Fragment {
             public void onClick(View view, int position) {
 
                 Tasks bak = taskList.get(position);
-                Toast.makeText(getContext(), bak.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
-
+                Intent mIntent = new Intent(getActivity(),ViewTaskActivity.class);
+                mIntent.putExtra("Bak",bak);
+                mIntent.putExtra("Serial", (Serializable) bak);
+                startActivity(mIntent);
             }
 
             @Override
@@ -72,15 +79,8 @@ public class MyListFragment extends Fragment {
     }
 
     public Cursor getAllTasks(){
-        return mDb.query(
-                TaskContract.TaskEntity.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
+        String query = "SELECT * FROM "+ TaskContract.TaskEntity.TABLE_NAME+" ORDER BY "+ TaskContract.TaskEntity.COLUMN_TASK_DEADLINE+" ASC";
+        return mDb.rawQuery(query,null);
     }
 
     public ArrayList<Tasks> setAllTasks(Cursor cursor){
@@ -100,136 +100,10 @@ public class MyListFragment extends Fragment {
             task.setPunishment(cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT)));
             task.setSuccess(cursor.getInt(cursor.getColumnIndex(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS))==1);
             task.setCompleted(cursor.getInt(cursor.getColumnIndex(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED))==1);
-            Log.d("New Task:",task.getTitle());
             taskList.add(task);
         }
-
-
 
         return  taskList;
     }
 
-    public void insertFakeData(SQLiteDatabase db){
-        if(db==null)
-            return;
-
-        List<ContentValues> list = new ArrayList<ContentValues>();
-
-        ContentValues cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"First to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"First to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"First to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"First to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"First to do");
-        list.add(cv);
-
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        cv = new ContentValues();
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_TITLE,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DESC,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_DEADLINE,"06-08-2017 12:30");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REMINDER,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_REWARD,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_PUNISHMENT,"Second to do");
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_COMPLETED,0);
-        cv.put(TaskContract.TaskEntity.COLUMN_TASK_SUCCESS,"Second to do");
-        list.add(cv);
-        try{
-            db.beginTransaction();
-            db.delete (TaskContract.TaskEntity.TABLE_NAME,null,null);
-            //go through the list and add one by one
-            for(ContentValues c:list){
-                db.insert(TaskContract.TaskEntity.TABLE_NAME, null, c);
-            }
-            db.setTransactionSuccessful();
-            Log.e("List Size", String.valueOf(list.size()));
-        }catch (SQLException e){
-
-        }finally{
-            db.endTransaction();
-        }
-    }
-}
+  }

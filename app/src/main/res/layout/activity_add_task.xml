@@ -29,6 +29,21 @@
             android:padding="@dimen/_12sdp"/>
 
         <EditText
+            android:id="@+id/add_task_punishment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/border"
+            android:hint="@string/add_task_punishment"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="@dimen/_12sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12sdp" />
+
+        <EditText
             android:hint="@string/add_task_description"
             android:id="@+id/add_task_description"
             android:layout_width="match_parent"
@@ -126,20 +141,7 @@
             android:layout_marginEnd="@dimen/_8sdp"
             android:textColor="@color/colorBlack"
             android:padding="@dimen/_12sdp"/>
-        <EditText
-            android:hint="@string/add_task_punishment"
-            android:id="@+id/add_task_punishment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:inputType="text"
-            android:background="@drawable/border"
-            android:maxLines="1"
-            android:layout_marginRight="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:textColor="@color/colorBlack"
-            android:padding="@dimen/_12sdp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

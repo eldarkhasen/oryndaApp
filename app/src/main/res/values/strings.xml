@@ -14,4 +14,11 @@
     <string name="add_new_menu_task">Жаңа тапсырма</string>
     <string name="invalid_input_values">Тапсырма толық емес!</string>
     <string name="task_date_and_time">уақыт берілмеген</string>
+    <string name="view_menu_task">Тапсырма</string>
+    <string name="reminder_alarm_is_off">Хабарлама өшірулі</string>
+    <string name="task_due_date">Орындау уақыты</string>
+    <string name="test">asffsasdfkjashfhaskjfhekfnshf askdfykj sdfjhakjfhasdb sadkjfhaskdjhfasdfhasd basddfhasdgfasdjhf basdkjfhasdfhasdkfjlas klajshddfkasgdfkjask hlkqufikljfhsjakfdjasdfasdfhasjhfsjkadfjkasdf</string>
+    <string name="learn_android">Жай май тапсырма</string>
+    <string name="delete_menu_task">Тапсырманы жою</string>
+    <string name="edit_menu_task">Тапсырманы өзгерту</string>
 </resources>

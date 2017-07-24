@@ -24,8 +24,15 @@
             android:theme="@style/AppTheme.NoActionBar">
             </activity>
         <activity android:name=".Activity.AddTaskActivity"
-            android:parentActivityName=".Activity.AddTaskActivity"
+            android:parentActivityName=".Activity.MainActivity"
             android:label="@string/add_new_menu_task">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity"/>
+        </activity>
+        <activity android:name=".Activity.ViewTaskActivity"
+            android:parentActivityName=".Activity.MainActivity"
+            android:label="@string/view_menu_task">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.MainActivity"/>
